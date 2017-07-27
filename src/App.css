@@ -6,6 +6,18 @@
   background-color: #3c2e2a;
 }
 
+.fill-kitsch-brown {
+  fill: #211A17;
+}
+
+.bg-darken-kitsch-brown {
+  background-color: #211A17;
+}
+
+.mh-3 {
+  max-height: 24rem;
+}
+
 /*
 
 TACHYONS OVERRIDES
