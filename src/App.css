@@ -18,6 +18,10 @@
   max-height: 24rem;
 }
 
+.min-w-1 {
+  min-width: 24rem;
+}
+
 /*
 
 TACHYONS OVERRIDES
