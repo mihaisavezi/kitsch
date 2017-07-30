@@ -8,12 +8,12 @@ const Form = () => (
             <input type="hidden" name="id" value="4567245c2d"/>
 
             <div className="avenir measure mb4">
-                <label htmlFor="name" className="f6 db mb2">Email<span className="normal kitsch-brown"></span></label>
+                <p className="f5 db mb4">Mai avem niste detalii de pus la punct si te vom anunța când suntem gata.</p>
+                <label htmlFor="name" className="f5 db b mb2">Email<span className="normal kitsch-brown"></span></label>
                 <input id="name" name="MERGE0" className="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name-desc"/>
-                <small id="name-desc" className="i f6 black-60 db mb2">Nu iti trimited decat un singur mail, atunci cand suntem gata sa lansam.</small>
             </div>
 
-            <input type="submit" className="ph4 pv3 input-reset ba b--white bg-darken-kitsch-brown white pointer f5 avenir" name="submit" value="Anunta-ma cand e gata" />
+            <input type="submit" className="ph4 pv3 input-reset ba b--white bg-darken-kitsch-brown white pointer f5 avenir" name="submit" value="Anunță-mă" />
             
         </form>
     </div>   

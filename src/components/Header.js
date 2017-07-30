@@ -139,9 +139,9 @@ const Header = () => (
         <nav className="pa3 pa4-ns flex items-center justify-around">
             <Logo width="126px" height="70px" />
             <div className="avenir tracked">
-                <a className="dib kitsch-brown ml5 f5 link" href="#">DE CE DIHOR?</a>
-                <a className="dib kitsch-brown ml5 f5 link" href="#">BLOG</a>
-                <a className="dib kitsch-brown ml5 f5 link" href="#">MAI MULTE PRODUSE</a>
+                <a className="dib kitsch-brown ml5 f6 link" href="/">DE CE DIHOR?</a>
+                <a className="dib kitsch-brown ml5 f6 link" href="/">BLOG</a>
+                <a className="dib kitsch-brown ml5 f6 link" href="/">MAI MULTE PRODUSE</a>
             </div>
         </nav>
     </div>
