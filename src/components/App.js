@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "tachyons";
-import "./App.css";
-import product from "./product_03.jpg";
-import Header from "./components/Header";
-import Form from "./components/Form";
+import "../App.css";
+import product from "../product_03.jpg";
+import Header from "./Header";
+import Form from "./Form";
 import { ModalContainer, ModalDialog } from "react-modal-dialog";
 
 let ga = window.ga;
@@ -42,7 +42,7 @@ class Hero extends Component {
           alt=""
         />
         <h3 className="f3 fw6 ma0 kitsch-brown avenir">
-          Eau de Costinești - Elimină mirosurile plăcute.
+          Eau de Costinești - elimină mirosurile plăcute, definitiv.
         </h3>
         <p className="f6 tc ttu tracked ma0 mt2 mb4 kitsch-brown o-60 avenir measure-wide">
           odorizant de cameră
@@ -105,32 +105,3 @@ class App extends Component {
     );
   }
 }
-
-const WorkInProgress = () =>
-  <div className="App min-vh-100 flex flex-column mw9 ph6 center">
-    <Header />
-    <div className="w-100 flex flex-column flex-auto items-center justify-center">
-      <h1 className="f-headline ttu avenir fw3 tc lh-solid ma0 black-10 pa2 mb7">
-        Mai e de lucru.
-      </h1>
-    </div>
-  </div>;
-
-class Root extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <Route path="/" exact component={App} />
-          <Route component={WorkInProgress} />
-        </Switch>
-      </Router>
-    );
-  }
-}
-
-export default Root;
