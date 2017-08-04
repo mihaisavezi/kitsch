@@ -7,11 +7,11 @@
 }
 
 .fill-kitsch-brown {
-  fill: #211A17;
+  fill: #211a17;
 }
 
 .bg-darken-kitsch-brown {
-  background-color: #211A17;
+  background-color: #211a17;
 }
 
 .mh-3 {
@@ -28,9 +28,21 @@ TACHYONS OVERRIDES
 
 */
 
-.f1 { font-size: 4.909rem; }
-.f2 { font-size: 3.683rem; }
-.f3 { font-size: 2.073rem; }
-.f4 { font-size: 1.555rem; }
-.f5 { font-size: 1.166rem; }
-.f6 { font-size: .875rem; }
+.f1 {
+  font-size: 4.909rem;
+}
+.f2 {
+  font-size: 3.683rem;
+}
+.f3 {
+  font-size: 2.073rem;
+}
+.f4 {
+  font-size: 1.555rem;
+}
+.f5 {
+  font-size: 1.166rem;
+}
+.f6 {
+  font-size: .875rem;
+}
