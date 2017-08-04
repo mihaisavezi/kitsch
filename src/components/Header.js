@@ -151,20 +151,32 @@ const Logo = ({ width, height }) =>
     </svg>
   </div>;
 
-const Header = () =>
+const Header = ({ onClick }) =>
   <div className="mb4">
     <nav className="pa3 pa4-ns flex items-center justify-around">
       <Link to="/">
         <Logo width="126px" height="70px" />
       </Link>
       <div className="avenir tracked">
-        <Link className="dib kitsch-brown ml5 f6 link" to="/de-ce-noi">
+        <Link
+          onClick={e => onClick(e)}
+          className="dib kitsch-brown ml5 f6 link"
+          to="/de-ce-noi"
+        >
           DE CE DIHOR?
         </Link>
-        <Link className="dib kitsch-brown ml5 f6 link" to="/blog">
+        <Link
+          onClick={e => onClick(e)}
+          className="dib kitsch-brown ml5 f6 link"
+          to="/blog"
+        >
           BLOG
         </Link>
-        <Link className="dib kitsch-brown ml5 f6 link" to="/mai-multe-produse">
+        <Link
+          onClick={e => onClick(e)}
+          className="dib kitsch-brown ml5 f6 link"
+          to="/mai-multe-produse"
+        >
           MAI MULTE PRODUSE
         </Link>
       </div>

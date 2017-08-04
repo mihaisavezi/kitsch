@@ -11,7 +11,7 @@ const Form = () =>
 
       <div className="avenir measure mb4">
         <p className="f5 db mb4">
-          Fii printre primii care isi vor primi sticluta atunci cand vom lansa.
+          Fii printre primii care își vor primi sticluța atunci când vom lansa.
         </p>
         <label htmlFor="name" className="f5 db b mb2">
           Email<span className="normal kitsch-brown" />

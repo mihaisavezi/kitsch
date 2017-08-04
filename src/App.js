@@ -81,12 +81,25 @@ class Hero extends Component {
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(e) {
+    let currentLinkText = e.nativeEvent.target.text.toLowerCase();
+    ga.send(
+      "send",
+      "event",
+      `${currentLinkText}-button`,
+      "click",
+      "learn more"
+    );
   }
 
   render() {
     return (
       <div className="App min-vh-100 flex flex-column mw9 ph6 center">
-        <Header />
+        <Header onClick={this.onClick} />
         <Hero />
       </div>
     );
