@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Logo = ({ width, height }) =>
-  <div style={{ width, height }}>
+const Logo = ({ width, height, ...props}) =>
+  <div {...props} style={{ width, height }}>
     <svg
       className="fill-kitsch-brown"
       version="1.1"
@@ -152,29 +152,29 @@ const Logo = ({ width, height }) =>
   </div>;
 
 const Header = ({ onClick }) =>
-  <div className="mb4">
-    <nav className="pa3 pa4-ns flex items-center justify-around">
+  <div className="mb5 mb4-ns">
+    <nav className="pa3 pa4-l db flex-l items-center justify-around">
       <Link to="/">
-        <Logo width="126px" height="70px" />
+        <Logo className="center mb4 ma0-l" width="126px" height="70px" />
       </Link>
       <div className="avenir tracked">
         <Link
           onClick={e => onClick(e)}
-          className="dib kitsch-brown ml5 f6 link"
+          className="db tc dib-l kitsch-brown mv3 ml5-l f7 f6-ns link"
           to="/de-ce-noi"
         >
           DE CE DIHOR?
         </Link>
         <Link
           onClick={e => onClick(e)}
-          className="dib kitsch-brown ml5 f6 link"
+          className="db tc dib-l kitsch-brown mv3 ml5-l f7 f6-ns link"
           to="/blog"
         >
           BLOG
         </Link>
         <Link
           onClick={e => onClick(e)}
-          className="dib kitsch-brown ml5 f6 link"
+          className="db tc dib-l kitsch-brown mv3 ml5-l f7 f6-ns link"
           to="/mai-multe-produse"
         >
           MAI MULTE PRODUSE

@@ -36,17 +36,17 @@ class Hero extends Component {
           Esențe neobișnuite.
         </h3> */}
         <img
-          className="mb3"
+          className="mb3 mw4 mw-100-ns"
           src={process.env.PUBLIC_URL + "/product-logo.svg"}
           alt=""
         />
-        <h3 className="f3 fw6 ma0 kitsch-brown avenir">
+        <h3 className="f4 tc f3-ns fw6 ma0 kitsch-brown avenir">
           Eau de Costinești - elimină mirosurile plăcute, definitiv.
         </h3>
-        <p className="f6 tc ttu tracked ma0 mt2 mb4 kitsch-brown o-60 avenir measure-wide">
+        <p className="f7 f6-ns tc ttu tracked ma0 mt2 mb4 kitsch-brown o-60 avenir measure-wide">
           odorizant de cameră
         </p>
-        <p className="f5 ma0 mb5 kitsch-brown lh-copy tc avenir measure">
+        <p className="f5 ma0 mb5 kitsch-brown lh-copy tc-ns avenir measure">
           Se spune că omul sfințește locul. Însă noi credem că mirosul îl
           sfințește. Și avem și dovada vie. Esența de hamsie, extrasă cu grija
           din sfintele grătare din Costinesti e tot ce ai nevoie ca sa aduci
@@ -62,7 +62,7 @@ class Hero extends Component {
         >
           Comandă Acum
         </a>
-        <p className="f6 tc mb4 kitsch-brown o-60 avenir measure-wide">
+        <p className="f7 f6-ns tc mb4 kitsch-brown o-60 avenir measure-wide">
           Rezerva de microspray contine un parfum concentrat care se raspândește
           sub forma unor particule fine în atmosferă.
         </p>
@@ -97,7 +97,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App min-vh-100 flex flex-column mw9 ph6 center">
+      <div className="App min-vh-100 flex flex-column mw9 ph3 ph4-m ph6-l center">
         <Header onClick={this.onClick} />
         <Hero />
       </div>
