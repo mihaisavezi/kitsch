@@ -6,9 +6,6 @@ import App from './App';
 import WorkInProgress from './WorkInProgress';
 
 class Root extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

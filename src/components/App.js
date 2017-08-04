@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "tachyons";
 import "../App.css";
 import product from "../product_03.jpg";
@@ -78,7 +77,7 @@ class Hero extends Component {
   }
 }
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
 
