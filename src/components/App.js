@@ -37,6 +37,7 @@ class Image extends Component {
           src={process.env.PUBLIC_URL + "/product-logo.svg"}
           style={{
             transformStyle: `preserve-3d`,
+            transformOrigin: "top left",
             transform: `rotateX(${this.props.rotation.rotX}deg) rotateY(${this
               .props.rotation.rotY}deg)`
           }}
