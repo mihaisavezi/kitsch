@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Logo = ({ width, height, ...props}) =>
+const Logo = ({ width, height, ...props }) =>
   <div {...props} style={{ width, height }}>
     <svg
       className="fill-kitsch-brown"
@@ -151,7 +151,7 @@ const Logo = ({ width, height, ...props}) =>
     </svg>
   </div>;
 
-const Header = ({ onClick }) =>
+const Header = ({ sendOnClick }) =>
   <div className="mb5 mb4-ns">
     <nav className="pa3 pa4-l db flex-l items-center justify-around">
       <Link to="/">
@@ -159,21 +159,21 @@ const Header = ({ onClick }) =>
       </Link>
       <div className="avenir tracked">
         <Link
-          onClick={e => onClick(e)}
+          onClick={e => sendOnClick(e)}
           className="db tc dib-l kitsch-brown mv3 ml5-l f7 f6-ns link"
           to="/de-ce-noi"
         >
           DE CE DIHOR?
         </Link>
         <Link
-          onClick={e => onClick(e)}
+          onClick={e => sendOnClick(e)}
           className="db tc dib-l kitsch-brown mv3 ml5-l f7 f6-ns link"
           to="/blog"
         >
           BLOG
         </Link>
         <Link
-          onClick={e => onClick(e)}
+          onClick={e => sendOnClick(e)}
           className="db tc dib-l kitsch-brown mv3 ml5-l f7 f6-ns link"
           to="/mai-multe-produse"
         >

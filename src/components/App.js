@@ -6,8 +6,8 @@ import Header from "./Header";
 import Form from "./Form";
 import { ModalContainer, ModalDialog } from "react-modal-dialog";
 
-import ObservableComponent from "rxjs-react-component";
-import { Observable, Scheduler } from "rxjs";
+import Rx from "rxjs";
+import recycle from "recycle";
 
 let ga = window.ga;
 const lerp = (start, end) => {
@@ -38,8 +38,8 @@ class Image extends Component {
           style={{
             transformStyle: `preserve-3d`,
             transformOrigin: "top left",
-            transform: `rotateX(${this.props.rotation.rotX}deg) rotateY(${this
-              .props.rotation.rotY}deg)`
+            transform: `rotateX(${this.props.rotation.x}deg) rotateY(${this
+              .props.rotation.y}deg)`
           }}
           alt=""
         />
@@ -110,56 +110,69 @@ class Hero extends Component {
   }
 }
 
-export default class App extends ObservableComponent {
-  constructor(props) {
-    super(props);
+const App = recycle({
+  initialState: {
+    rotation: {
+      x: 0,
+      y: 0
+    }
+  },
 
-    this.onClick = this.onClick.bind(this);
-    this.state = { rotX: 0, rotY: 0 };
-  }
+  update(sources) {
+    const mouseMove$ = sources
+      .selectClass("jsApp")
+      .addListener("onMouseMove")
+      .map(e => ({ x: e.clientX, y: e.clientY }));
 
-  onMouseMove$(observable) {
-    const animationFrame$ = Observable.interval(0, Scheduler.animationFrame);
-    const mouseMove$ = observable.map(e => {
-      e.persist();
-      return { x: e.clientX, y: e.clientY };
-    });
+    const touchMove$ = sources
+      .selectClass("jsApp")
+      .addListener("onTouchMove")
+      .map(e => ({ x: e.clientX, y: e.clientY }));
+
+    const move$ = Rx.Observable.merge(mouseMove$, touchMove$);
+
+    const animationFrame$ = Rx.Observable.interval(
+      0,
+      Rx.Scheduler.animationFrame
+    );
 
     const smoothMove$ = animationFrame$
-      .withLatestFrom(mouseMove$, (frame, move) => move) // takes every mouse/touch move emitted in the animationFrame interval
-      .scan((current, next) => lerp(current, next))
-      .subscribe(pos => {
-        this.setState(() => {
-          return {
-            rotX: pos.y / window.innerHeight * 50 - 25,
-            rotY: pos.x / window.innerWidth * 50 - 25
-          };
-        });
-      });
+      .withLatestFrom(move$, (tick, move) => move)
+      .scan(lerp);
 
-    return observable;
-  }
+    return [
+      smoothMove$.reducer(function(state, returnedValue) {
+        const rotX = returnedValue.y / window.innerHeight * 50 - 25;
+        const rotY = returnedValue.x / window.innerWidth * 50 - 25;
+        state.rotation = {
+          x: rotX,
+          y: rotY
+        };
+        return state;
+      }),
+      sources.selectClass("Header").addListener("sendOnClick").map(e => {
+        let currentLinkText = e.nativeEvent.target.text.toLowerCase();
+        ga.send(
+          "send",
+          "event",
+          `${currentLinkText}-button`,
+          "click",
+          "learn more"
+        );
+      })
+    ];
+  },
 
-  onClick(e) {
-    let currentLinkText = e.nativeEvent.target.text.toLowerCase();
-    ga.send(
-      "send",
-      "event",
-      `${currentLinkText}-button`,
-      "click",
-      "learn more"
-    );
-  }
-
-  render() {
+  view(props, state) {
     return (
-      <div
-        onMouseMove={this.onMouseMove$}
-        className="App min-vh-100 flex flex-column mw9 ph3 ph4-m ph6-l center"
-      >
-        <Header onClick={this.onClick} />
-        <Hero rotation={this.state} />
+      <div className="jsApp">
+        <div className="App min-vh-100 flex flex-column mw9 ph3 ph4-m ph6-l center">
+          <Header className="Header" sendOnClick={e => e} />
+          <Hero {...state} />
+        </div>
       </div>
     );
   }
-}
+});
+
+export default App;
