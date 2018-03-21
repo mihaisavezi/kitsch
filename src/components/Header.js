@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Logo = ({ width, height, ...props }) =>
-  <div {...props} style={{ width, height }}>
+  <div {...props} style={{ width, height }} className="logo-svg">
    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-	 width={width} height="inherit" viewBox="0 0 224.95 74.856" enable-background="new 0 0 224.95 74.856">
+	 width={width} viewBox="0 0 224.95 74.856" enableBackground="new 0 0 224.95 74.856">
 <g id="Layer_1">
 </g>
 <g id="Layer_2">
@@ -119,27 +119,27 @@ const Header = ({ sendOnClick }) =>
   <div className="mb5 mb4-ns">
     <nav className="pa3 pa4-l db flex-l items-center justify-around">
       <Link to="/">
-        <Logo className="center mb3" width="126px" height="65px" />
+        <Logo className="center mb0" width="126px" height="60px" />
       </Link>
       <div className="avenir tracked">
         <Link
           onClick={e => sendOnClick(e)}
-          className="db tc dib-l kitsch-brown mt3 ml5-l f7 f6-ns link"
-          to="/de-ce-noi"
+          className="db tc dib-l white mt3 ml5-l f7 f6-ns link"
+          to="/"
         >
           DE CE DIHOR?
         </Link>
         <Link
           onClick={e => sendOnClick(e)}
-          className="db tc dib-l kitsch-brown mt3 ml5-l f7 f6-ns link"
-          to="/blog"
+          className="db tc dib-l white mt3 ml5-l f7 f6-ns link"
+          to="/"
         >
           BLOG
         </Link>
         <Link
           onClick={e => sendOnClick(e)}
-          className="db tc dib-l kitsch-brown mt3 ml5-l f7 f6-ns link"
-          to="/mai-multe-produse"
+          className="db tc dib-l white mt3 ml5-l f7 f6-ns link"
+          to="/"
         >
           MAI MULTE PRODUSE
         </Link>

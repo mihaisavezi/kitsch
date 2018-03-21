@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "tachyons";
 import "../App.css";
-import product from "../product_03.png";
+import product from "../product_04.png";
 import Header from "./Header";
 import Form from "./Form";
 import { ModalContainer, ModalDialog } from "react-modal-dialog";
@@ -33,7 +33,7 @@ class Image extends Component {
         }}
       >
         <img
-          className="mb3 db center mw4 mw-100-ns"
+          className="mb3 db mw4 mw-100-ns tl"
           src={process.env.PUBLIC_URL + "/product-logo.svg"}
           style={{
             transformStyle: `preserve-3d`,
@@ -71,34 +71,35 @@ class Hero extends Component {
     };
 
     return (
-      <div className="w-100 flex flex-column items-center justify-center">
-        <Image rotation={this.props.rotation} />
-        <h3 className="f4 tc f3-ns fw6 ma0 kitsch-brown avenir">
-          Eau de Costinești - elimină mirosurile plăcute, definitiv.
-        </h3>
-        <p className="f7 f6-ns tc ttu tracked ma0 mt2 mb4 kitsch-brown o-60 avenir measure-wide">
-          odorizant de cameră
-        </p>
-        <p className="f5 ma0 mb5 kitsch-brown lh-copy tc-ns avenir measure">
-          Se spune că omul sfințește locul. Însă noi credem că mirosul îl
-          sfințește. Și avem și dovada vie. Esența de hamsie, extrasă cu grija
-          din sfintele grătare din Costinesti e tot ce ai nevoie ca sa aduci
-          amintirile unei veri toride, la tine în casă. Pentru un efect de
-          durată asigură-te că dai în toată casa, atât în bucătarie dar mai ales
-          în dormitor.
-        </p>
-        <img src={product} className="vh-75 db center mh-3 pa2" />
-        <p className="f6 mb4 kitsch-brown o-6">20 RON / Sticlă</p>
-        <a
-          onClick={this.handleClick}
-          className="f5 avenir link dim ph4 pv3 pb2 mt4 dib white bg-darken-kitsch-brown"
-        >
-          Comandă Acum
-        </a>
-        <p className="f7 f6-ns tc pb4 mv0 kitsch-brown o-60 avenir measure-wide">
-          Rezerva de microspray contine un parfum concentrat care se raspândește
-          sub forma unor particule fine în atmosferă.
-        </p>
+      <div className="w-100 flex flex-row mw7 center">
+        <div className="w-50 pa3">
+          <h3 className="f4 tl f-headline-ns fw6 ma0 white avenir w6">
+            Dacie
+          </h3>
+          <h3 className="f4 tl f-headline-ns fw6 ma0 white avenir w6">
+            din
+          </h3>
+          <h3 className="f4 tl f-headline-ns fw6 ma0 white avenir w6">
+            garaj
+          </h3>
+          <p className="f7 f6-ns tl ttu tracked ma0 mt3 mb4 white o-60 avenir measure-wide">
+            odorizant de cameră
+          </p>
+        </div>
+        <div className="w-50 pa3 tc">
+          <img src={product} className="vh-75 db center mh-3 pa2" />
+          <p className="f6 mb4 white o-6">20 RON / Sticlă</p>
+          <a
+            onClick={this.handleClick}
+            className="f5 avenir link dim ph4 pv3 pb2 mt4 dib white bg-dark-gray"
+          >
+            Comandă Acum
+          </a>
+          <p className="f7 f6-ns tc mt3 pb4 mb0 white o-60 avenir measure-wide">
+            Rezerva de microspray contine un parfum concentrat care se raspândește
+            sub forma unor particule fine în atmosferă.
+          </p>
+        </div>
         {this.state.isShowingModal &&
           <ModalContainer onClose={this.handleClose}>
             <ModalDialog style={modalStyle} onClose={this.handleClose}>
@@ -142,11 +143,11 @@ const App = recycle({
 
     return [
       smoothMove$.reducer(function(state, returnedValue) {
-        const rotX = returnedValue.y / window.innerHeight * 50 - 25;
-        const rotY = returnedValue.x / window.innerWidth * 50 - 25;
+        const rotLeftShape = returnedValue.y / window.innerHeight * (100-75) + 75;
+        const rotRightShape = returnedValue.x / window.innerWidth * (50-20) + 20;
         state.rotation = {
-          x: rotX,
-          y: rotY
+          l: rotLeftShape,
+          r: rotRightShape
         };
         return state;
       }),
@@ -165,20 +166,21 @@ const App = recycle({
 
   view(props, state) {
     return (
-      <div className="jsApp relative">
-        <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              version="1.1" className="triangles triangle-left svg-triangle" 
-              fill-opacity="1"
-              width="inherit"
-              height="inherit"
-              viewBox="0 0 100 100" 
-              >
-            
-            <path height="100%" width="100%" d="M 0,0 100,100 0,100 Z"/>
-            <path className="triangle-right" height="100%" width="100%" d="M 60,100 100,100 100,25 Z"/>
-          </svg>
-        <div className="App min-vh-100 flex flex-column mw9 ph3 ph4-m ph6-l center relative">
+      <div className="jsApp relative bg-img">
+        <div className="parent z-2">
+          <svg
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1" className="triangles triangle-left svg-triangle"
+                fillOpacity="1"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                >
+
+              <path className="triangle-right" height="100%" width="100%" d={`M ${state.rotation.r},100 100,100 100,50 Z`}/>
+              <path height="100%" width="100%" d={`M 0,20 ${state.rotation.l},100 0,100 Z`}/>
+            </svg>
+        </div>
+        <div className="App min-vh-100 flex flex-column center relative">
           <Header className="Header" sendOnClick={e => e} />
           <Hero {...state} />
         </div>
