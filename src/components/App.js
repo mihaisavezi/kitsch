@@ -71,22 +71,25 @@ class Hero extends Component {
     };
 
     return (
-      <div className="w-100 flex flex-row mw7 center">
-        <div className="w-50 pa3">
-          <h3 className="f4 tl f-headline-ns fw6 ma0 white avenir w6">
+      <div className="w-100 flex flex-column flex-row-ns mw7 center">
+        <div className="w-100 w-50-ns pa3">
+        <h3 className="dn-ns f2 tc tl-ns f-headline-ns fw6 ma0 white avenir w6">
+          Dacie din garaj
+        </h3>
+          <h3 className="f3 dn db-ns tc tl-ns f-headline-ns fw6 ma0 white avenir w6">
             Dacie
           </h3>
-          <h3 className="f4 tl f-headline-ns fw6 ma0 white avenir w6">
+          <h3 className="f3 dn db-ns tc tl-ns f-headline-ns fw6 ma0 white avenir w6">
             din
           </h3>
-          <h3 className="f4 tl f-headline-ns fw6 ma0 white avenir w6">
+          <h3 className="f3 dn db-ns tc tl-ns f-headline-ns fw6 ma0 white avenir w6">
             garaj
           </h3>
-          <p className="f7 f6-ns tl ttu tracked ma0 mt3 mb4 white o-60 avenir measure-wide">
+          <p className="f7 f6-ns tc tl-ns ttu tracked ma0 mt3 mb4 white o-60 avenir measure-wide">
             odorizant de cameră
           </p>
         </div>
-        <div className="w-50 pa3 tc">
+        <div className="w-100 w-50-ns pa3 tc">
           <img src={product} className="vh-75 db center mh-3 pa2" />
           <p className="f6 mb4 white o-6">20 RON / Sticlă</p>
           <a
