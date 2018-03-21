@@ -91,11 +91,11 @@ class Hero extends Component {
         <p className="f6 mb4 kitsch-brown o-6">20 RON / Sticlă</p>
         <a
           onClick={this.handleClick}
-          className="f5 avenir link dim ph4 pv3 mb2 mt4 dib white bg-darken-kitsch-brown"
+          className="f5 avenir link dim ph4 pv3 pb2 mt4 dib white bg-darken-kitsch-brown"
         >
           Comandă Acum
         </a>
-        <p className="f7 f6-ns tc mb4 kitsch-brown o-60 avenir measure-wide">
+        <p className="f7 f6-ns tc pb4 mv0 kitsch-brown o-60 avenir measure-wide">
           Rezerva de microspray contine un parfum concentrat care se raspândește
           sub forma unor particule fine în atmosferă.
         </p>
@@ -165,8 +165,20 @@ const App = recycle({
 
   view(props, state) {
     return (
-      <div className="jsApp">
-        <div className="App min-vh-100 flex flex-column mw9 ph3 ph4-m ph6-l center">
+      <div className="jsApp relative">
+        <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              version="1.1" className="triangles triangle-left svg-triangle" 
+              fill-opacity="1"
+              width="inherit"
+              height="inherit"
+              viewBox="0 0 100 100" 
+              >
+            
+            <path height="100%" width="100%" d="M 0,0 100,100 0,100 Z"/>
+            <path className="triangle-right" height="100%" width="100%" d="M 60,100 100,100 100,25 Z"/>
+          </svg>
+        <div className="App min-vh-100 flex flex-column mw9 ph3 ph4-m ph6-l center relative">
           <Header className="Header" sendOnClick={e => e} />
           <Hero {...state} />
         </div>
