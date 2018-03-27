@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "tachyons";
 import "../App.css";
-import product from "../product_04.png";
+import product from "../product_02.png";
 import Header from "./Header";
 import Form from "./Form";
 import { ModalContainer, ModalDialog } from "react-modal-dialog";
@@ -76,14 +76,14 @@ class Hero extends Component {
         <h3 className="dn-ns f2 tc tl-ns f-headline-ns fw6 ma0 white avenir w6">
           Dacie din garaj
         </h3>
-          <h3 className="f3 dn db-ns tc tl-ns f-headline-ns fw6 ma0 white avenir w6">
-            Dacie
+          <p className="f7 f6-ns tc tl-ns serif tracked ma0 mt3 mb1 white o-60 measure-wide">
+              Multașteptatul, care tot întârzie să apară
+            </p>
+          <h3 className="f3 dn db-ns tc tl-ns f-headline-ns fw6 ma0 white o-90 avenir w6">
+            Tramvai
           </h3>
-          <h3 className="f3 dn db-ns tc tl-ns f-headline-ns fw6 ma0 white avenir w6">
-            din
-          </h3>
-          <h3 className="f3 dn db-ns tc tl-ns f-headline-ns fw6 ma0 white avenir w6">
-            garaj
+          <h3 className="f3 dn db-ns tc tl-ns f-headline-ns fw6 ma0 white o-90 avenir w6">
+            N<sup>o</sup> 41
           </h3>
           <p className="f7 f6-ns tc tl-ns ttu tracked ma0 mt3 mb4 white o-60 avenir measure-wide">
             odorizant de cameră
@@ -91,10 +91,10 @@ class Hero extends Component {
         </div>
         <div className="w-100 w-50-ns pa3 tc">
           <img src={product} className="vh-75 db center mh-3 pa2" />
-          <p className="f6 mb4 white o-6">20 RON / Sticlă</p>
+          <p className="f6 mb4 white o-60">20 RON / Sticlă</p>
           <a
             onClick={this.handleClick}
-            className="f5 avenir link dim ph4 pv3 pb2 mt4 dib white bg-dark-gray"
+            className="f5 avenir link dim ph4 pv3 pb2 mt4 dib near-black bg-gold"
           >
             Comandă Acum
           </a>

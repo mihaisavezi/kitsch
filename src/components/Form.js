@@ -27,7 +27,7 @@ const Form = () =>
 
       <input
         type="submit"
-        className="ph4 pv3 input-reset ba b--white bg-darken-kitsch-brown white pointer f5 avenir"
+        className="ph4 pv3 input-reset ba b--white bg-near-black white pointer f5 avenir"
         name="submit"
         value="Anunță-mă"
       />
